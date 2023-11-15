@@ -9,7 +9,7 @@ app.set('view engine', 'ejs')
 app.set('views', './views')
 
 app.get('/', async(req, res) => {   
-    await createPeople('Laurindo Junior')         
+    await createPeople('Lulu Silva')         
     const people = await getPeople()
     res.render('home', {people: people})        
 });
