@@ -9,8 +9,9 @@ services:
     networks:
       - nodenet
     volumes:
-      - ./node:/usr/src/app         
-    command: ["/usr/bin/wait-for", "db:3306", "-t 40", "--", "node", "index.js"]
+      - ./node:/usr/src/app
+      - node_modules:/usr/src/app/node_modules         
+    command: ["/usr/bin/wait-for", "db:3306", "-t 40", "--","node", "index.js"]        
     tty: true      
     depends_on:
       - db
@@ -44,5 +45,8 @@ services:
 networks:
   nodenet:
     driver: bridge
+
+volumes:
+  node_modules:
 
   
